@@ -2,9 +2,7 @@ export default function campoCpf(campo) {
     const cpf = campo.value.replace(/\.|-/g, "");
 
     if(numerosRepetidosCpf(cpf) || verificaPrimeiroDigitoCpf(cpf) || verificaSegundoDigitoCpf(cpf)){
-        console.log('cpf inválido!')
-    }else{
-        console.log('cpf válido');
+        campo.setCustomValidity('CPF inválido, informe um CPF válido!')
     }
 
 }
@@ -25,8 +23,7 @@ function numerosRepetidosCpf(cpf) {
     return numerosRepetidos.includes(cpf);
 
 }
-    //6 1 5 4 3 6 1 8 3 1 6
-    //60 69 109 137 155 185 189 213 219 
+
 function verificaPrimeiroDigitoCpf(cpf) {
     let soma = 0;
     let multiplicador = 10;
